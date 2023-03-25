@@ -19,10 +19,8 @@ def transform(z, c):
 def plot_counts(iter_counts):
     """ Plot NumPy array of integer values as heatmap. 
     """
-    fig, ax = plt.subplots(figsize=[16, 10])
-    ax.set_aspect('equal')
     cmap = sns.color_palette('mako', as_cmap=True)
-    sns.heatmap(iter_counts, ax=ax, cmap=cmap)
+    plt.imshow(np.log(iter_counts + 1), cmap=cmap)
     plt.show()
 
 
@@ -61,7 +59,7 @@ def count_iterations(grid, n_iter):
 
 
 def picture_mandelbrot(frame=[complex(-2.25, -1.5), complex(0.75, 1.5)],
-                       n_points_x=1000, n_points_y=1000, n_iter=100):
+                       n_points_x=1_000, n_points_y=1_000, n_iter=100):
     """ Picture the Mandelbrot set
         within the frame given as [bottom left corner, top right corner]
         with a resolution of n_points_x times n_points_y pixels.
