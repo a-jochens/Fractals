@@ -10,8 +10,8 @@ import seaborn as sns
 
 
 def transform(z, c):
-    """ Function to iterate for every point c within the frame. 
-        Works with single complex input numbers as well as with complex arrays.
+    """ This is the function to be iterated for every point c within the frame. 
+        It works with single complex input numbers as well as with complex arrays.
     """ 
     return z**2 + c
 
@@ -20,7 +20,7 @@ def plot_counts(iter_counts):
     """ Plot NumPy array of integer values as heatmap. 
     """
     cmap = sns.color_palette('mako', as_cmap=True)
-    plt.imshow(np.log(iter_counts + 1), cmap=cmap)
+    plt.imshow(np.log(iter_counts + 1), cmap=cmap, interpolation='nearest')  
     plt.show()
 
 
@@ -70,4 +70,10 @@ def picture_mandelbrot(frame=[complex(-2.25, -1.5), complex(0.75, 1.5)],
     
 
 if __name__ == "__main__":
-    picture_mandelbrot()
+    # picture_mandelbrot(frame=[complex(-0.745, -0.245), complex(-0.740, -0.240)])
+    # picture_mandelbrot(frame=[complex(-0.7425735, -0.2425559), complex(-0.7425734, -0.2425558)], n_iter=1000)
+    # picture_mandelbrot(frame=[complex(-0.74257346, -0.24255586), complex(-0.74257345, -0.24255585)], n_iter=1000)
+    picture_mandelbrot(frame=[complex(-0.74257345515, -0.24255585510), complex(-0.74257345510, -0.24255585505)], n_iter=1000)
+    # picture_mandelbrot(frame=[complex(-0.74257345513, -0.24255585508), complex(-0.74257345512, -0.24255585507)], n_iter=1000)
+    # picture_mandelbrot(frame=[complex(-0.74257345512015, -0.24255585507025), complex(-0.74257345512020, -0.24255585507020)], n_iter=1000)
+    # picture_mandelbrot(frame=[complex(-0.742573455120175, -0.242555855070226), complex(-0.742573455120176, -0.242555855070225)], n_iter=1_000)
